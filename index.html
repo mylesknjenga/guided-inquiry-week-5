@@ -39,7 +39,9 @@
     
     window.updateTheBackground = function(className) {
       const myBody = document.querySelector("body");
-      myBody.className = "";
+
+      const cls = ["bg-white", "bg-red"];
+      myBody.classList.remove(...cls);
       myBody.classList.add(className);
     };
     </script>
