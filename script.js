@@ -31,11 +31,33 @@ findTarget([4,5,6,7,0,1,2], 3);
 
 //HARD - THIS ACTIVITY CAN BE FOUND IN THE INDEX.HTML FILE
 
-// // #DOM Manipulation - Easy
-// // Goal: In JavaScript - Create two buttons, one that when clicked turns the background 
-// of the body red. The other, when clicked, turns the body's background color white. Each of 
-// the background colors should be defined as class styles and when the buttons are pushed the 
-// body's classList is updated to include the correct class for the background
 
-// // Create a single function that takes an input className and updates the body's classList 
-// to ONLY include that className
+
+//VERY HARD
+
+const fewestNum = (coins, amount) => {
+
+    const table = Array(amount + 1);
+    table.fill(amount + 1);
+    table[0] = 0;
+  
+
+    
+    for (let i = 1; i <= amount; i++) {
+      for (let j = 0; j < coins.length; j++) {
+        if (coins[j] <= i) {
+          table[i] = Math.min(table[i], table[i - coins[j]] + 1);
+        }
+      }
+    }
+
+    if (table[amount] > amount) {
+        return -1;
+    } else {
+        return table[amount];
+    }
+}
+
+//TESTS
+console.log(fewestNum([1, 2, 5], 11));
+console.log(fewestNum([2], 3));
