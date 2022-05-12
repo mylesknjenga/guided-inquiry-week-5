@@ -38,7 +38,9 @@
     <script>
     
     window.updateTheBackground = function(className) {
-      document.querySelector("body").classList.add(className);
+      const myBody = document.querySelector("body");
+      myBody.className = "";
+      myBody.classList.add(className);
     };
     </script>
 </body>
